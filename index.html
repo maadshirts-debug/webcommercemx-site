@@ -1,58 +1,77 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WebCommerce MX — Consultoría de comercio electrónico</title>
-<meta name="description" content="Consultoría de comercio electrónico en Monterrey. Shopify, Amazon, Google Ads y estrategia online para negocios establecidos.">
+<title>Web-Commerce — Desarrollo de tiendas en línea</title>
+<meta name="description" content="Consultoría y desarrollo de comercio electrónico en Monterrey. Shopify, marketplaces y publicidad, operados como un solo sistema.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box}
-:root{--deep:#0C2A33;--deep-2:#123A47;--aqua:#3FB3C6;--mist:#B9D4DA;--line:rgba(255,255,255,.14)}
+:root{--wc-navy:#063244;--wc-red:#F9354C;--wc-maroon:#7F3348;--ap-blue:#3B58A5;
+  --ink:#12222E;--ink-2:#41525E;--ink-3:#7B8A95;--rule:#DDE3E9;--rule-lt:#EAEFF3;--wash:#F7F9FB}
 html,body{height:100%}
-body{margin:0;background:var(--deep);color:#fff;
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  line-height:1.65;display:flex;flex-direction:column;
-  background-image:radial-gradient(90% 60% at 15% 0%,rgba(63,179,198,.18),transparent 60%),
-                   radial-gradient(70% 50% at 100% 100%,rgba(18,58,71,.9),transparent 60%)}
-.wrap{max-width:640px;margin:0 auto;padding:0 24px;width:100%}
-main{flex:1;display:flex;align-items:center;padding:72px 0}
-.brand{font-family:Fraunces,Georgia,serif;font-size:12.5px;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--aqua);margin:0 0 22px}
-h1{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(30px,6.5vw,46px);
-  line-height:1.18;letter-spacing:-.015em;margin:0}
-.lede{color:var(--mist);font-size:17px;margin:22px 0 0;max-width:48ch}
-.rules{margin:34px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:9px}
-.rules li{border:1px solid var(--line);border-radius:999px;padding:6px 14px;
-  font-size:13.5px;color:#CFE4E8}
+body{margin:0;background:#fff;color:var(--ink);
+  font-family:Inter,'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.55;
+  display:flex;flex-direction:column}
+h1,h2{font-family:Poppins,sans-serif;font-weight:600;letter-spacing:-.015em;margin:0}
+.flag{height:8px;background:linear-gradient(90deg,var(--ap-blue) 0 62%,var(--wc-navy) 62% 84%,var(--wc-red) 84% 100%)}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px;width:100%}
+main{flex:1;padding:46px 0 64px}
+.logo{height:52px;width:auto}
+.eyebrow{font-family:'Roboto Mono',monospace;font-size:11.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--wc-red);font-weight:500;margin:52px 0 0}
+h1{font-size:clamp(28px,6vw,40px);line-height:1.15;color:var(--wc-navy);margin:12px 0 0;max-width:20ch}
+h1 em{font-style:normal;color:var(--ap-blue)}
+.lede{margin:20px 0 0;font-size:17px;color:var(--ink-2);max-width:56ch}
+.rule{height:2px;width:96px;background:var(--ap-blue);margin:26px 0 0}
+.grid{margin:34px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{background:var(--wash);border:1px solid var(--rule-lt);border-radius:8px;padding:16px}
+.card .k{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
+.card .v{font-weight:600;font-size:15.5px;color:var(--ink)}
+.card p{margin:5px 0 0;font-size:14px;color:var(--ink-2);line-height:1.45}
 .cta{margin:38px 0 0}
-.cta a{display:inline-block;background:#fff;color:var(--deep);text-decoration:none;
-  font-weight:600;font-size:15.5px;padding:13px 28px;border-radius:999px;transition:.15s}
-.cta a:hover{background:var(--aqua);color:#06222b;transform:translateY(-1px)}
-footer{border-top:1px solid var(--line);padding:22px 0}
-footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
-  color:#8FAEB6;font-size:13px}
-footer a{color:#8FAEB6}
+.cta a{display:inline-block;background:var(--wc-navy);color:#fff;text-decoration:none;
+  font-weight:600;font-size:15.5px;padding:13px 30px;border-radius:6px;transition:.15s}
+.cta a:hover{background:#0A4257}
+footer{background:var(--wc-navy);color:#fff;padding:22px 0}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+footer .mono{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;opacity:.72}
+footer a{color:#fff;text-decoration:none;font-size:14px}
+footer a:hover{text-decoration:underline}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.logo{height:40px}}
 </style>
 </head>
 <body>
+<div class="flag"></div>
 <main>
   <div class="wrap">
-    <p class="brand">WebCommerce MX</p>
-    <h1>Consultoría de comercio electrónico</h1>
-    <p class="lede">Trabajo con negocios ya establecidos que venden bien fuera de línea y quieren que su canal digital funcione igual de bien. Tienda, marketplaces y publicidad, operados como un solo sistema.</p>
-    <ul class="rules">
-      <li>Shopify</li><li>Amazon</li><li>Google Ads</li><li>Analítica</li><li>Estrategia</li>
-    </ul>
+    <img class="logo" src="assets/webcommerce.png" alt="Web-Commerce">
+    <p class="eyebrow">Consultoría de comercio electrónico</p>
+    <h1>Tiendas en línea que <em>sí venden</em></h1>
+    <p class="lede">Trabajo con negocios ya establecidos que venden bien fuera de línea y quieren que su canal digital funcione igual de bien. Tienda, marketplaces y publicidad, operados como un solo sistema y no como piezas sueltas.</p>
+    <div class="rule"></div>
+    <div class="grid">
+      <div class="card"><div class="k">Tienda</div><div class="v">Shopify</div>
+        <p>Catálogo, pagos, facturación y envíos armados alrededor de cómo ya opera el negocio.</p></div>
+      <div class="card"><div class="k">Marketplaces</div><div class="v">Amazon</div>
+        <p>Listings, contenido y cuentas, con las restricciones de cada categoría revisadas antes de publicar.</p></div>
+      <div class="card"><div class="k">Publicidad</div><div class="v">Google Ads</div>
+        <p>Search, Shopping y presencia local, medidos contra ventas reales y no contra clics.</p></div>
+      <div class="card"><div class="k">Medición</div><div class="v">Analítica</div>
+        <p>Saber qué canal trae dinero, para decidir con datos en lugar de con corazonadas.</p></div>
+    </div>
     <p class="cta"><a href="mailto:webcommercemx@gmail.com">Escríbeme</a></p>
   </div>
 </main>
 <footer>
   <div class="wrap">
-    <span>Monterrey, México</span>
-    <span><a href="mailto:webcommercemx@gmail.com">webcommercemx@gmail.com</a></span>
+    <span class="mono">Monterrey, México</span>
+    <a href="mailto:webcommercemx@gmail.com">webcommercemx@gmail.com</a>
   </div>
 </footer>
 </body>
