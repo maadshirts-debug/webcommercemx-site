@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Angie Pools — Cuestionario de arranque</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Cuestionario de arranque para el proyecto de comercio electrónico de Angie Pools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --ink:#0C2A33; --ink-2:#3E5A63; --ink-3:#7C929A;
+  --bg:#F4F2ED; --card:#FFFFFF; --line:#E2DED6;
+  --deep:#0C3D4A; --deep-2:#124E5E; --aqua:#2A9DB0; --aqua-soft:#E6F3F5;
+  --defer:#9A7B4F; --defer-soft:#F6EFE4;
+  --shadow:0 1px 2px rgba(12,42,51,.05), 0 8px 24px rgba(12,42,51,.05);
+  --r:14px;
+}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;line-height:1.6;padding-bottom:88px}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.01em;margin:0}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+
+/* ---------- hero ---------- */
+.hero{background:linear-gradient(160deg,var(--deep) 0%,var(--deep-2) 55%,#17627254 100%),var(--deep);
+  color:#fff;padding:52px 0 44px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -60% -10%;height:180px;
+  background:radial-gradient(60% 100% at 50% 0,rgba(42,157,176,.45),transparent 70%)}
+.hero .wrap{position:relative;z-index:1}
+.brand{font-family:Fraunces,Georgia,serif;font-size:13px;letter-spacing:.22em;
+  text-transform:uppercase;color:#8FD3DE;margin:0 0 18px}
+.hero h1{font-size:clamp(28px,6vw,42px);line-height:1.15;color:#fff}
+.hero .lede{margin:18px 0 0;color:#CFE6EA;font-size:16.5px;max-width:56ch}
+.meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+  color:#DCEEF1;border-radius:999px;padding:6px 13px;font-size:13px;font-weight:500}
+
+/* ---------- intro note ---------- */
+.note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--aqua);
+  border-radius:var(--r);padding:20px 22px;margin:-26px 0 0;position:relative;z-index:2;box-shadow:var(--shadow)}
+.note p{margin:0;color:var(--ink-2);font-size:15.5px}
+.note strong{color:var(--ink)}
+
+/* ---------- blocks ---------- */
+.blk{margin-top:44px}
+.blk-head h2{font-size:23px}
+.blk-head p{margin:8px 0 0;color:var(--ink-2);font-size:15.5px;max-width:60ch}
+.defer-all{margin-top:14px;background:none;border:1px dashed var(--line);color:var(--ink-3);
+  font:inherit;font-size:13.5px;padding:7px 14px;border-radius:999px;cursor:pointer;transition:.15s}
+.defer-all:hover{border-color:var(--defer);color:var(--defer);background:var(--defer-soft)}
+.blk-body{margin-top:18px;display:flex;flex-direction:column;gap:14px}
+
+/* ---------- question ---------- */
+.q{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:20px;box-shadow:var(--shadow);transition:.18s}
+.q:focus-within{border-color:var(--aqua);box-shadow:0 0 0 3px var(--aqua-soft),var(--shadow)}
+.q-top{display:flex;gap:12px;align-items:baseline}
+.q-n{font-family:Fraunces,Georgia,serif;font-size:12.5px;color:var(--aqua);
+  font-weight:600;letter-spacing:.06em;flex:none;padding-top:2px}
+.q-t{font-weight:600;font-size:16.5px;color:var(--ink);display:block;cursor:pointer}
+.q-h{margin:8px 0 0 28px;color:var(--ink-2);font-size:14.5px}
+.q-field{margin:14px 0 0 28px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);
+  background:#FCFBF9;border:1px solid var(--line);border-radius:10px;padding:11px 13px;
+  resize:vertical;outline:none;transition:.15s}
+textarea:focus,input[type=text]:focus{background:#fff;border-color:var(--aqua)}
+textarea::placeholder,input::placeholder{color:#B4BFC4}
+.defer{margin:12px 0 0 28px;background:none;border:0;color:var(--ink-3);font:inherit;
+  font-size:13.5px;padding:4px 0;cursor:pointer;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-color:var(--line);transition:.15s}
+.defer:hover{color:var(--defer);text-decoration-color:var(--defer)}
+/* deferred state */
+.q.is-defer{background:var(--defer-soft);border-color:#E7D8BE}
+.q.is-defer .q-field,.q.is-defer .q-h{display:none}
+.q.is-defer .q-t{color:var(--defer)}
+.q.is-defer .q-n{color:var(--defer)}
+.q.is-defer .defer{color:var(--defer);font-weight:500;text-decoration:none}
+.q.is-defer .defer::before{content:"↩ ";}
+.q.is-defer .defer{margin-top:8px}
+.q.is-done{border-color:#BFE0E5}
+.q.is-done .q-n::after{content:" ✓";color:var(--aqua)}
+
+/* ---------- submit ---------- */
+.end{margin:48px 0 0;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);padding:26px 22px;text-align:center;box-shadow:var(--shadow)}
+.end p{margin:0 0 18px;color:var(--ink-2);font-size:15.5px}
+.btn{background:var(--deep);color:#fff;border:0;border-radius:999px;font:inherit;
+  font-weight:600;font-size:16px;padding:14px 34px;cursor:pointer;transition:.15s;
+  box-shadow:0 4px 14px rgba(12,61,74,.22)}
+.btn:hover{background:var(--deep-2);transform:translateY(-1px)}
+.btn:disabled{opacity:.55;cursor:default;transform:none}
+.foot{margin:34px 0 0;padding:22px 0 12px;border-top:1px solid var(--line);
+  color:var(--ink-3);font-size:13px;text-align:center}
+
+/* ---------- progress bar ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  padding:11px 0 calc(11px + env(safe-area-inset-bottom))}
+.bar .wrap{display:flex;align-items:center;gap:14px}
+.track{flex:1;height:6px;background:#E7E3DB;border-radius:999px;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--aqua),var(--deep-2));
+  border-radius:999px;transition:width .3s ease}
+.count{font-size:13px;color:var(--ink-2);font-weight:500;white-space:nowrap}
+.saved{font-size:12px;color:var(--ink-3);white-space:nowrap}
+
+/* ---------- thank you ---------- */
+.done-screen{display:none;text-align:center;padding:80px 0 60px}
+.done-screen h2{font-size:30px}
+.done-screen p{color:var(--ink-2);max-width:46ch;margin:16px auto 0}
+.tick{width:64px;height:64px;border-radius:50%;background:var(--aqua-soft);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 22px;
+  font-size:30px;color:var(--aqua)}
+body.sent .hero .lede,body.sent .meta,body.sent .note,body.sent form,body.sent .bar{display:none}
+body.sent .done-screen{display:block}
+@media(max-width:520px){
+  .q-h,.q-field,.defer{margin-left:0}
+  .hero{padding:40px 0 34px}
+  .saved{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="brand">Angie Pools</p>
+    <h1>Cuestionario de arranque</h1>
+    <p class="lede">Angie Pools tiene 45 años de reputación y una marca que en Monterrey ya se conoce. Estas preguntas son para llevar eso a línea sin romper nada de lo que hoy funciona.</p>
+    <div class="meta">
+      <span class="pill">42 preguntas</span>
+      <span class="pill">Ninguna es obligatoria</span>
+      <span class="pill">Se guarda solo</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="note">
+    <p><strong>Contesta lo que puedas y difiere el resto.</strong> Cualquier pregunta que prefieras platicar en persona, dale a <em>“Lo vemos en la junta”</em> y se va directo a la agenda de nuestra sesión en la tienda. Lo que escribas se guarda solo en este dispositivo: puedes cerrar y seguir después.</p>
+  </div>
+
+  <form id="f" novalidate>
+<section class="blk">
+  <div class="blk-head">
+    <h2>Bloque 0 — Accesos</h2>
+    <p>Esta parte no requiere saber nada técnico: es &quot;dime con qué correo se creó&quot; o &quot;invítame como usuario&quot;. Si algo no lo sabes de memoria, déjalo en blanco y lo vemos juntos.</p>
+    <button type="button" class="defer-all" data-defer-all>Ver todo este bloque en la junta</button>
+  </div>
+  <div class="blk-body">
+    <div class="q" data-entry="entry.2127293137">
+      <div class="q-top"><span class="q-n">01</span>
+        <label class="q-t" for="entry.2127293137">0.1 · La página y el tema de Shopify</label></div>
+      <p class="q-h">Mencionaste que posiblemente había una página de Shopify. Yo veo angiepools.com, ¿te refieres a esa? Si es así, esa página está hospedada en Wix, no en Shopify — y mi recomendación es que nos mudemos a Shopify. Si además existiera una cuenta de Shopify aparte, avísame con qué correo se creó.</p>
+      <div class="q-field"><textarea id="entry.2127293137" name="entry.2127293137" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.280870724">
+      <div class="q-top"><span class="q-n">02</span>
+        <label class="q-t" for="entry.280870724">0.2 · El dominio angiepools.com</label></div>
+      <p class="q-h">¿Dónde está registrado —GoDaddy, Wix, otro— y con qué cuenta?</p>
+      <div class="q-field"><textarea id="entry.280870724" name="entry.280870724" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.2004249167">
+      <div class="q-top"><span class="q-n">03</span>
+        <label class="q-t" for="entry.2004249167">0.3 · Google Business Profile (la ficha de Google Maps)</label></div>
+      <p class="q-h">¿Quién es el dueño de la ficha? Si me agregas como administrador, puedo empezar por ahí.</p>
+      <div class="q-field"><textarea id="entry.2004249167" name="entry.2004249167" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1020669520">
+      <div class="q-top"><span class="q-n">04</span>
+        <label class="q-t" for="entry.1020669520">0.4 · Google Ads, Analytics y Search Console</label></div>
+      <p class="q-h">¿Existen cuentas? ¿Alguien corrió campañas antes?</p>
+      <div class="q-field"><textarea id="entry.1020669520" name="entry.1020669520" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1650313862">
+      <div class="q-top"><span class="q-n">05</span>
+        <label class="q-t" for="entry.1650313862">0.5 · Facebook e Instagram</label></div>
+      <p class="q-h">Acceso de administrador a la página y a @angiepools, y si existe Business Manager.</p>
+      <div class="q-field"><textarea id="entry.1650313862" name="entry.1650313862" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1381090507">
+      <div class="q-top"><span class="q-n">06</span>
+        <label class="q-t" for="entry.1381090507">0.6 · El correo ventas@angiepools.com</label></div>
+      <p class="q-h">¿Está en Google Workspace, en Microsoft o en el hosting?</p>
+      <div class="q-field"><input type="text" id="entry.1381090507" name="entry.1381090507" placeholder="Escribe aquí…"></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.66767939">
+      <div class="q-top"><span class="q-n">07</span>
+        <label class="q-t" for="entry.66767939">0.7 · El catálogo</label></div>
+      <p class="q-h">Lo que exista de lista de productos y precios: Excel, PDF, el sistema, lo que sea — aunque esté desordenado o incompleto. Yo lo ordeno; tú mándamelo como esté (por correo o WhatsApp).</p>
+      <div class="q-field"><textarea id="entry.66767939" name="entry.66767939" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+</div></section>
+<section class="blk">
+  <div class="blk-head">
+    <h2>Bloque 1 — El negocio y sus clientes</h2>
+    <p>Para entender de dónde viene el negocio hoy y quién compra.</p>
+    <button type="button" class="defer-all" data-defer-all>Ver todo este bloque en la junta</button>
+  </div>
+  <div class="blk-body">
+    <div class="q" data-entry="entry.371570097">
+      <div class="q-top"><span class="q-n">08</span>
+        <label class="q-t" for="entry.371570097">1 · ¿Cómo se reparte la facturación hoy, más o menos en porcentaje?</label></div>
+      <p class="q-h">Entre (a) construcción y remodelación de albercas, (b) servicio de mantenimiento recurrente y (c) venta de equipo y accesorios en mostrador. Con el porcentaje aproximado me basta.</p>
+      <div class="q-field"><textarea id="entry.371570097" name="entry.371570097" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.998564185">
+      <div class="q-top"><span class="q-n">09</span>
+        <label class="q-t" for="entry.998564185">2 · Estacionalidad</label></div>
+      <p class="q-h">¿Cuáles son los meses fuertes y cuáles los flojos? ¿Qué tan duro pega el invierno?</p>
+      <div class="q-field"><textarea id="entry.998564185" name="entry.998564185" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1369966268">
+      <div class="q-top"><span class="q-n">10</span>
+        <label class="q-t" for="entry.1369966268">3 · Márgenes aproximados por familia de producto, en porcentaje</label></div>
+      <p class="q-h">Químicos, equipo (bombas, filtros, calentadores), limpieza, refacciones, muebles LEDGE, accesorios. No necesito montos ni costos, solo el porcentaje aproximado.</p>
+      <div class="q-field"><textarea id="entry.1369966268" name="entry.1369966268" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.900989492">
+      <div class="q-top"><span class="q-n">11</span>
+        <label class="q-t" for="entry.900989492">4 · ¿Quién compra hoy?</label></div>
+      <p class="q-h">Más o menos cómo se reparte entre dueños de casa · administradores de fraccionamientos, clubes, gimnasios y hoteles · y otros técnicos o empresas de mantenimiento que revenden.</p>
+      <div class="q-field"><textarea id="entry.900989492" name="entry.900989492" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1111421631">
+      <div class="q-top"><span class="q-n">12</span>
+        <label class="q-t" for="entry.1111421631">5 · ¿Hay lista de precios distinta para mayoreo o clientes B2B?</label></div>
+      <p class="q-h">¿Con qué criterio se otorga?</p>
+      <div class="q-field"><textarea id="entry.1111421631" name="entry.1111421631" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.764707424">
+      <div class="q-top"><span class="q-n">13</span>
+        <label class="q-t" for="entry.764707424">6 · ¿Cómo llegan los clientes hoy?</label></div>
+      <p class="q-h">Recomendación, pasar por la tienda, teléfono, WhatsApp, Instagram, Google.</p>
+      <div class="q-field"><textarea id="entry.764707424" name="entry.764707424" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.780899419">
+      <div class="q-top"><span class="q-n">14</span>
+        <label class="q-t" for="entry.780899419">7 · ¿Han pagado publicidad alguna vez?</label></div>
+      <p class="q-h">¿En qué plataforma y cómo les fue?</p>
+      <div class="q-field"><textarea id="entry.780899419" name="entry.780899419" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+</div></section>
+<section class="blk">
+  <div class="blk-head">
+    <h2>Bloque 2 — Producto y catálogo</h2>
+    <p>Qué se puede vender en línea y con qué materia prima ya existente.</p>
+    <button type="button" class="defer-all" data-defer-all>Ver todo este bloque en la junta</button>
+  </div>
+  <div class="blk-body">
+    <div class="q" data-entry="entry.252334639">
+      <div class="q-top"><span class="q-n">15</span>
+        <label class="q-t" for="entry.252334639">8 · ¿Cuántos SKUs manejan?</label></div>
+      <p class="q-h">¿Cuántos de ellos son de venta constante, los que se mueven todas las semanas?</p>
+      <div class="q-field"><input type="text" id="entry.252334639" name="entry.252334639" placeholder="Escribe aquí…"></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.870571154">
+      <div class="q-top"><span class="q-n">16</span>
+        <label class="q-t" for="entry.870571154">9 · ¿Cuáles son los 20 productos que más venden?</label></div>
+      <p class="q-h">La tienda no tiene que llevar todo el catálogo de entrada; conviene arrancar con los que ya se mueven solos.</p>
+      <div class="q-field"><textarea id="entry.870571154" name="entry.870571154" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1386469904">
+      <div class="q-top"><span class="q-n">17</span>
+        <label class="q-t" for="entry.1386469904">10 · ¿Qué marcas distribuyen?</label></div>
+      <p class="q-h">¿Con cuáles son distribuidor autorizado o exclusivo? (Además de LEDGE.)</p>
+      <div class="q-field"><textarea id="entry.1386469904" name="entry.1386469904" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1098422899">
+      <div class="q-top"><span class="q-n">18</span>
+        <label class="q-t" for="entry.1098422899">11 · ¿Alguno de esos fabricantes limita la venta en línea o en marketplaces?</label></div>
+      <p class="q-h">¿Alguno fija un precio mínimo por contrato? Con que me digas en qué marcas conviene revisar es suficiente para empezar. Si existe alguna cláusula así, mejor verla antes de publicar precios.</p>
+      <div class="q-field"><textarea id="entry.1098422899" name="entry.1098422899" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1948802021">
+      <div class="q-top"><span class="q-n">19</span>
+        <label class="q-t" for="entry.1948802021">12 · ¿Los productos traen código de barras del fabricante (GTIN, EAN o UPC)?</label></div>
+      <p class="q-h">Facilita bastante el trabajo en Google Shopping y en marketplaces.</p>
+      <div class="q-field"><input type="text" id="entry.1948802021" name="entry.1948802021" placeholder="Escribe aquí…"></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1307543464">
+      <div class="q-top"><span class="q-n">20</span>
+        <label class="q-t" for="entry.1307543464">13 · ¿Los proveedores dan fotos y fichas técnicas para uso en línea?</label></div>
+      <p class="q-h">Si sí, nos ahorra bastante trabajo de fotografía.</p>
+      <div class="q-field"><input type="text" id="entry.1307543464" name="entry.1307543464" placeholder="Escribe aquí…"></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1982026397">
+      <div class="q-top"><span class="q-n">21</span>
+        <label class="q-t" for="entry.1982026397">14 · ¿Hay producto de marca propia o algo exclusivo de Angie Pools?</label></div>
+      
+      <div class="q-field"><textarea id="entry.1982026397" name="entry.1982026397" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1642029858">
+      <div class="q-top"><span class="q-n">22</span>
+        <label class="q-t" for="entry.1642029858">15 · ¿Vender en línea al mismo precio que en mostrador?</label></div>
+      <p class="q-h">¿O el mostrador negocia caso por caso? Conviene definirlo antes de publicar precios.</p>
+      <div class="q-field"><textarea id="entry.1642029858" name="entry.1642029858" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1598942927">
+      <div class="q-top"><span class="q-n">23</span>
+        <label class="q-t" for="entry.1598942927">16 · ¿Hay productos que prefieras no vender en línea?</label></div>
+      <p class="q-h">Por margen, por conflicto con la obra o porque requieren servicio para instalarse.</p>
+      <div class="q-field"><textarea id="entry.1598942927" name="entry.1598942927" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+</div></section>
+<section class="blk">
+  <div class="blk-head">
+    <h2>Bloque 3 — Operación, inventario y envíos</h2>
+    <p>Cómo se despacha hoy, para que la tienda prometa solo lo que la operación sí puede cumplir.</p>
+    <button type="button" class="defer-all" data-defer-all>Ver todo este bloque en la junta</button>
+  </div>
+  <div class="blk-body">
+    <div class="q" data-entry="entry.580504634">
+      <div class="q-top"><span class="q-n">24</span>
+        <label class="q-t" for="entry.580504634">17 · ¿Con qué sistema llevan inventario y ventas?</label></div>
+      <p class="q-h">Aspel SAE, CONTPAQi, Odoo, un punto de venta, Excel, o nada.</p>
+      <div class="q-field"><input type="text" id="entry.580504634" name="entry.580504634" placeholder="Escribe aquí…"></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.2062257533">
+      <div class="q-top"><span class="q-n">25</span>
+        <label class="q-t" for="entry.2062257533">18 · ¿El inventario del sistema es confiable, o hay que ir a bodega a verificar?</label></div>
+      <p class="q-h">Para decidir cómo mostramos las existencias en la tienda.</p>
+      <div class="q-field"><textarea id="entry.2062257533" name="entry.2062257533" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1061641183">
+      <div class="q-top"><span class="q-n">26</span>
+        <label class="q-t" for="entry.1061641183">19 · ¿Qué se tiene en stock físico y qué se pide al proveedor?</label></div>
+      <p class="q-h">¿Cuánto tarda el resurtido?</p>
+      <div class="q-field"><textarea id="entry.1061641183" name="entry.1061641183" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1988807973">
+      <div class="q-top"><span class="q-n">27</span>
+        <label class="q-t" for="entry.1988807973">20 · ¿Ya envían fuera de Monterrey?</label></div>
+      <p class="q-h">¿Con qué paquetería, y con convenio o a tarifa de mostrador?</p>
+      <div class="q-field"><textarea id="entry.1988807973" name="entry.1988807973" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.932785793">
+      <div class="q-top"><span class="q-n">28</span>
+        <label class="q-t" for="entry.932785793">21 · Químicos: cloro, ácido, alguicidas. ¿Alguna paquetería se los acepta hoy?</label></div>
+      
+      <div class="q-field"><textarea id="entry.932785793" name="entry.932785793" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.754391860">
+      <div class="q-top"><span class="q-n">29</span>
+        <label class="q-t" for="entry.754391860">22 · Equipo pesado (bombas, filtros, calentadores, limpiafondos)</label></div>
+      <p class="q-h">¿Cuánto costaría mandar uno a la Ciudad de México o Guadalajara?</p>
+      <div class="q-field"><textarea id="entry.754391860" name="entry.754391860" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.595295492">
+      <div class="q-top"><span class="q-n">30</span>
+        <label class="q-t" for="entry.595295492">23 · ¿Hay alguien que atienda pedidos en línea actualmente?</label></div>
+      
+      <div class="q-field"><textarea id="entry.595295492" name="entry.595295492" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1713073025">
+      <div class="q-top"><span class="q-n">31</span>
+        <label class="q-t" for="entry.1713073025">24 · Política de devoluciones y garantías</label></div>
+      <p class="q-h">¿Qué se hace hoy cuando algo sale mal?</p>
+      <div class="q-field"><textarea id="entry.1713073025" name="entry.1713073025" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1844281540">
+      <div class="q-top"><span class="q-n">32</span>
+        <label class="q-t" for="entry.1844281540">25 · ¿Instalación y servicio técnico propios?</label></div>
+      <p class="q-h">¿Se podría vender &quot;producto + instalación&quot; como paquete? Es algo que difícilmente puede ofrecer alguien que solo vende en línea.</p>
+      <div class="q-field"><textarea id="entry.1844281540" name="entry.1844281540" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+</div></section>
+<section class="blk">
+  <div class="blk-head">
+    <h2>Bloque 4 — Pagos, facturación y legal</h2>
+    <p>Para que la tienda cobre y facture como ya lo hacen hoy, sin cambiarles el proceso.</p>
+    <button type="button" class="defer-all" data-defer-all>Ver todo este bloque en la junta</button>
+  </div>
+  <div class="blk-body">
+    <div class="q" data-entry="entry.1469339955">
+      <div class="q-top"><span class="q-n">33</span>
+        <label class="q-t" for="entry.1469339955">26 · ¿Qué razón social y RFC factura?</label></div>
+      <p class="q-h">¿La tienda en línea iría a esa misma entidad?</p>
+      <div class="q-field"><textarea id="entry.1469339955" name="entry.1469339955" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.568023356">
+      <div class="q-top"><span class="q-n">34</span>
+        <label class="q-t" for="entry.568023356">27 · ¿Con qué facturan el CFDI hoy?</label></div>
+      <p class="q-h">Facturama, CONTPAQi, Bind, el portal del SAT. Para conectar la tienda a lo que ya usan.</p>
+      <div class="q-field"><input type="text" id="entry.568023356" name="entry.568023356" placeholder="Escribe aquí…"></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.302235212">
+      <div class="q-top"><span class="q-n">35</span>
+        <label class="q-t" for="entry.302235212">28 · ¿Ya cobran con tarjeta?</label></div>
+      <p class="q-h">¿Terminal de qué banco? ¿Han usado Mercado Pago, Stripe, Clip, Conekta o PayPal?</p>
+      <div class="q-field"><textarea id="entry.302235212" name="entry.302235212" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1778690908">
+      <div class="q-top"><span class="q-n">36</span>
+        <label class="q-t" for="entry.1778690908">29 · ¿Les acomodaría aceptar transferencia SPEI y pago en OXXO en la tienda en línea?</label></div>
+      <p class="q-h">En México es una parte real de las ventas.</p>
+      <div class="q-field"><textarea id="entry.1778690908" name="entry.1778690908" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.178265874">
+      <div class="q-top"><span class="q-n">37</span>
+        <label class="q-t" for="entry.178265874">30 · ¿&quot;Angie Pools&quot; está registrada como marca en el IMPI?</label></div>
+      <p class="q-h">Si todavía no, vale la pena verlo con calma: son 45 años de marca y el registro es lo que permite protegerla en línea.</p>
+      <div class="q-field"><textarea id="entry.178265874" name="entry.178265874" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.560634714">
+      <div class="q-top"><span class="q-n">38</span>
+        <label class="q-t" for="entry.560634714">31 · ¿Sabes si alguien más está vendiendo con el nombre Angie Pools en línea?</label></div>
+      <p class="q-h">¿O si hay confusión con otra empresa parecida?</p>
+      <div class="q-field"><textarea id="entry.560634714" name="entry.560634714" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+</div></section>
+<section class="blk">
+  <div class="blk-head">
+    <h2>Bloque 5 — Competencia, cliente y marca</h2>
+    <p>Lo que ustedes ya saben del cliente es la mejor materia prima para el contenido del sitio.</p>
+    <button type="button" class="defer-all" data-defer-all>Ver todo este bloque en la junta</button>
+  </div>
+  <div class="blk-body">
+    <div class="q" data-entry="entry.635898740">
+      <div class="q-top"><span class="q-n">39</span>
+        <label class="q-t" for="entry.635898740">32 · ¿A quién consideras tu competencia real aquí en Monterrey?</label></div>
+      
+      <div class="q-field"><textarea id="entry.635898740" name="entry.635898740" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.440943739">
+      <div class="q-top"><span class="q-n">40</span>
+        <label class="q-t" for="entry.440943739">33 · ¿Qué te preguntan más los clientes en el mostrador y por WhatsApp?</label></div>
+      <p class="q-h">Las dudas más repetidas.</p>
+      <div class="q-field"><textarea id="entry.440943739" name="entry.440943739" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.1352774546">
+      <div class="q-top"><span class="q-n">41</span>
+        <label class="q-t" for="entry.1352774546">34 · ¿Qué te dicen los clientes que hacen que te compren a ti y no al de al lado?</label></div>
+      
+      <div class="q-field"><textarea id="entry.1352774546" name="entry.1352774546" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+    <div class="q" data-entry="entry.2033575910">
+      <div class="q-top"><span class="q-n">42</span>
+        <label class="q-t" for="entry.2033575910">35 · ¿Tienes el logo en vectorial (.ai, .eps, .svg) y manual de marca?</label></div>
+      <p class="q-h">¿Fotos de obras terminadas?</p>
+      <div class="q-field"><textarea id="entry.2033575910" name="entry.2033575910" rows="3" placeholder="Escribe aquí…"></textarea></div>
+      <button type="button" class="defer" data-defer>Lo vemos en la junta</button>
+    </div>
+</div></section>
+
+    <div class="end">
+      <p id="endmsg">Cuando termines, envíalo. Si dejaste preguntas para la junta, esas se convierten en el guion de nuestra sesión.</p>
+      <button type="submit" class="btn" id="send">Enviar cuestionario</button>
+    </div>
+  </form>
+
+  <div class="done-screen">
+    <div class="tick">✓</div>
+    <h2>Recibido, gracias</h2>
+    <p>Ya me llegaron tus respuestas. Reviso todo y te escribo con lo que encontré y la agenda de la junta en la tienda.</p>
+  </div>
+
+  <p class="foot">Preparado por WebCommerce MX · Consultoría de comercio electrónico</p>
+</main>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="track"><div class="fill" id="fill"></div></div>
+    <span class="count" id="count">0 de 42</span>
+    <span class="saved" id="saved"></span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var ACTION="https://docs.google.com/forms/d/e/1FAIpQLSfBbbKRkfNYF8dEEbBk9j_FOjbG4U0GEG-YVAqdbvOI9vwBXw/formResponse", DEFER="Lo vemos en la junta en la tienda", KEY="angiepools_onboarding_v1", TOTAL=42;
+  var form=document.getElementById("f"), qs=[].slice.call(document.querySelectorAll(".q"));
+
+  function fieldOf(q){ return q.querySelector("textarea,input[type=text]"); }
+  function isDefer(q){ return q.classList.contains("is-defer"); }
+
+  function setDefer(q,on){
+    var f=fieldOf(q);
+    if(on){ q.dataset.prev=f.value; f.value=DEFER; q.classList.add("is-defer");
+            q.querySelector("[data-defer]").textContent="Quitar de la junta"; }
+    else  { f.value=(q.dataset.prev||""); q.classList.remove("is-defer");
+            q.querySelector("[data-defer]").textContent="Lo vemos en la junta"; }
+    paint(q);
+  }
+  function paint(q){
+    var f=fieldOf(q), v=(f.value||"").trim();
+    q.classList.toggle("is-done", v.length>0 && !isDefer(q));
+  }
+  function progress(){
+    var n=0; qs.forEach(function(q){ if((fieldOf(q).value||"").trim()) n++; });
+    document.getElementById("count").textContent=n+" de "+TOTAL;
+    document.getElementById("fill").style.width=(n/TOTAL*100)+"%";
+    var d=qs.filter(isDefer).length;
+    document.getElementById("endmsg").textContent = d
+      ? "Dejaste "+d+" pregunta"+(d>1?"s":"")+" para la junta. Esas se convierten en el guion de nuestra sesión en la tienda."
+      : "Cuando termines, envíalo. Si dejaste preguntas para la junta, esas se convierten en el guion de nuestra sesión.";
+  }
+
+  // ---- guardado local ----
+  var t=null;
+  function save(){
+    try{
+      var d={};
+      qs.forEach(function(q){ d[q.dataset.entry]={v:fieldOf(q).value, d:isDefer(q)}; });
+      localStorage.setItem(KEY, JSON.stringify(d));
+      var s=document.getElementById("saved");
+      s.textContent="Guardado"; clearTimeout(t); t=setTimeout(function(){s.textContent="";},1800);
+    }catch(e){}
+  }
+  function restore(){
+    try{
+      var d=JSON.parse(localStorage.getItem(KEY)||"{}");
+      qs.forEach(function(q){
+        var s=d[q.dataset.entry]; if(!s) return;
+        fieldOf(q).value=s.v||"";
+        if(s.d){ q.classList.add("is-defer");
+                 q.querySelector("[data-defer]").textContent="Quitar de la junta"; }
+        paint(q);
+      });
+    }catch(e){}
+  }
+
+  qs.forEach(function(q){
+    fieldOf(q).addEventListener("input",function(){
+      if(isDefer(q)) setDefer(q,false);
+      paint(q); progress(); save();
+    });
+    q.querySelector("[data-defer]").addEventListener("click",function(){
+      setDefer(q,!isDefer(q)); progress(); save();
+    });
+  });
+  [].forEach.call(document.querySelectorAll("[data-defer-all]"),function(b){
+    b.addEventListener("click",function(){
+      var body=b.closest(".blk").querySelector(".blk-body");
+      [].forEach.call(body.querySelectorAll(".q"),function(q){
+        if(!(fieldOf(q).value||"").trim() || isDefer(q)) setDefer(q,true);
+      });
+      progress(); save();
+    });
+  });
+
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var btn=document.getElementById("send");
+    btn.disabled=true; btn.textContent="Enviando…";
+    var fd=new FormData();
+    qs.forEach(function(q){
+      var v=(fieldOf(q).value||"").trim();
+      if(v) fd.append(q.dataset.entry, v);
+    });
+    fd.append("fvv","1");
+    fd.append("pageHistory","0,1,2,3,4,5");
+    fd.append("fbzx", String(-Math.floor(Math.random()*9e18)));
+    fetch(ACTION,{method:"POST",mode:"no-cors",body:fd})
+      .catch(function(){})
+      .then(function(){
+        try{ localStorage.removeItem(KEY); }catch(e){}
+        document.body.classList.add("sent");
+        window.scrollTo({top:0,behavior:"smooth"});
+      });
+  });
+
+  restore(); progress();
+})();
+</script>
+</body>
+</html>
