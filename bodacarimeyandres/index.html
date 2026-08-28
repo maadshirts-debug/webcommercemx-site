@@ -25,13 +25,11 @@
        -webkit-font-smoothing:antialiased;}
   .wrap{width:var(--wrap); margin-inline:auto;}
 
-  .hero{background:var(--card); border-bottom:1px solid var(--rule-soft); padding:0 0 8px;}
-  .hero img{display:block; width:100%; max-width:600px; height:auto; margin-inline:auto;}
-
-  .greet{text-align:center; padding:34px 0 0;}
-  .greet p{margin:0; font-family:var(--serif); font-size:27px; font-weight:400; line-height:1.35;}
-  .greet .sub{font-family:var(--sans); font-size:14px; color:var(--ink-soft); margin-top:9px;}
-  .count{margin:26px auto 0; display:inline-flex; align-items:baseline; gap:9px;
+  .hero{background:var(--card); border-bottom:1px solid var(--rule-soft);
+        padding:52px 0 44px; text-align:center;}
+  .saludo{font-family:var(--serif); font-size:clamp(26px,7vw,34px); font-weight:400;
+          color:var(--ink); line-height:1.32; margin:0; text-wrap:balance;}
+  .count{margin:28px auto 0; display:inline-flex; align-items:baseline; gap:9px;
          border:1px solid var(--rule); padding:9px 20px;}
   .count b{font-family:var(--serif); font-size:27px; font-weight:500; color:var(--olive);
            font-variant-numeric:tabular-nums;}
@@ -114,14 +112,12 @@
 </head>
 <body>
 
-<div class="hero">
-  <img src="invitacion.jpg?v=2" alt="Invitación de boda de Carime y Andrés, sábado 31 de octubre de 2026" width="1080" height="1620">
-  <div class="wrap greet">
-    <p id="saludo">Nos encantaría celebrar contigo</p>
-    <p class="sub" id="saludoSub">Aquí están los detalles del día y el formulario para confirmar.</p>
+<header class="hero">
+  <div class="wrap">
+    <p class="saludo" id="saludo">Nos encantaría celebrar contigo</p>
     <div class="count"><b id="dias">—</b><span id="diasLbl">días</span></div>
   </div>
-</div>
+</header>
 
 <main class="wrap">
   <svg class="orn" viewBox="0 0 190 22" fill="none" aria-hidden="true">
