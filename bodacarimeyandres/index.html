@@ -74,6 +74,8 @@
   input:focus-visible,textarea:focus-visible{outline:none; border-color:var(--olive);
     box-shadow:0 0 0 3px rgba(107,114,72,.13);}
   input[readonly]{background:var(--bone-deep); color:var(--ink-soft);}
+  .nota{font-style:normal; text-transform:none; letter-spacing:.02em; text-indent:0;
+        font-size:11.5px; color:var(--olive); margin-left:6px;}
   .hint{font-size:12.5px; color:var(--ink-faint); margin:7px 0 0; line-height:1.5;}
 
   .choice{display:flex; gap:10px;}
@@ -181,7 +183,7 @@
       </div>
 
       <div class="fld" id="rowPersonas">
-        <label>¿Vienes acompañado?</label>
+        <label>¿Vienes acompañado? <em class="nota">*Solo adultos</em></label>
         <div class="choice">
           <label><input type="radio" name="cuantos" value="1" checked>Solo yo</label>
           <label><input type="radio" name="cuantos" value="2">Con pareja</label>
