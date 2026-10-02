@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AJUSCO · Propuesta de diseño v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ===== Tokens AJUSCO ===== */
+  :root{
+    --verde:#124A32; --verde-oscuro:#0D3A27; --crema:#F7F4EC; --crema-2:#EFE9DA;
+    --tinta:#1F2A24; --tinta-suave:#4B5B52; --oro:#C08A2E; --blanco:#FFFFFF;
+    --radio:14px; --max:1240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Jost",system-ui,sans-serif;color:var(--tinta);background:var(--crema);line-height:1.55;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:700;line-height:1.08;letter-spacing:-.01em}
+  .wrap{width:min(var(--max),100% - 40px);margin-inline:auto}
+  /* Especificidad mínima en reglas base (bug de Will) */
+  :where(.aj) a{color:inherit;text-decoration:none}
+
+  /* ===== Botones ===== */
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:15px;border:2px solid transparent;cursor:pointer;transition:transform .15s,background .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn--oro{background:var(--oro);color:var(--verde-oscuro)}
+  .btn--verde{background:var(--verde);color:var(--crema)}
+  .btn--linea{background:transparent;border-color:currentColor;color:var(--crema)}
+  .btn--linea-verde{background:transparent;border-color:var(--verde);color:var(--verde)}
+
+  /* ===== Franja ===== */
+  .franja{background:var(--verde-oscuro);color:var(--crema);font-size:13.5px;text-align:center;padding:9px 16px;letter-spacing:.02em}
+  .franja b{color:var(--oro)}
+
+  /* ===== Header (transparente sobre el hero, como Stumptown) ===== */
+  .header{position:absolute;inset:0 0 auto 0;z-index:5;padding:18px 0}
+  .header .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+  .nav{display:flex;gap:28px;font-weight:500;font-size:15px;color:var(--crema)}
+  .logo img{height:84px;width:auto}
+  .icons{display:flex;gap:18px;color:var(--crema);font-size:14px;justify-self:end}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;min-height:720px;display:grid;align-items:center;color:var(--crema);background:#0b2a1c url("img/hero-bg.jpg") center/cover}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,32,22,.78) 0%,rgba(10,32,22,.45) 50%,rgba(10,32,22,.25) 100%)}
+  .hero > .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-block:110px 80px}
+  .hero .ante{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--oro);font-weight:600;margin-bottom:16px}
+  .hero h1{font-size:clamp(44px,6vw,76px);margin-bottom:18px}
+  .hero p{font-size:19px;max-width:34ch;color:#E9E3D3;margin-bottom:30px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .bolsa{justify-self:center;width:min(380px,80%);filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
+
+  /* ===== Credenciales ===== */
+  .creds{background:var(--verde);color:var(--crema)}
+  .creds .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;padding-block:26px}
+  .cred{display:flex;gap:12px;align-items:center;font-size:14.5px;min-width:0}
+  .cred .ico{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--oro);display:grid;place-items:center;color:var(--oro);flex:none;font-size:16px}
+
+  /* ===== Productos (tarjeta tipo Bird Rock) ===== */
+  .sec{padding-block:84px}
+  .sec-head{text-align:center;max-width:62ch;margin:0 auto 44px}
+  .sec-head .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--oro);font-weight:600;margin-bottom:10px}
+  .sec-head h2{font-size:clamp(32px,4vw,46px);color:var(--verde);margin-bottom:12px}
+  .sec-head p{color:var(--tinta-suave);font-size:17px}
+  .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:960px;margin-inline:auto}
+  .card{background:var(--blanco);border:1.5px solid var(--verde);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+  .card .foto{background:var(--crema-2);display:grid;place-items:center;padding:28px 28px 8px;aspect-ratio:4/3}
+  .card .foto img{height:100%;width:auto;max-height:300px}
+  .card .cuerpo{padding:22px 24px 26px;display:flex;flex-direction:column;gap:14px}
+  .card .origen{font-style:italic;color:var(--tinta-suave);font-size:14px}
+  .card h3{font-size:24px;color:var(--verde);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .card .precio{font-family:"Jost";font-weight:600;color:var(--blanco);background:var(--oro);padding:6px 12px;border-radius:8px;font-size:17px;flex:none}
+  .specs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--crema-2);border-bottom:1px solid var(--crema-2);padding:14px 0}
+  .specs div{padding:0 12px;font-size:13.5px;min-width:0}
+  .specs div+div{border-left:1px solid var(--crema-2)}
+  .specs b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--verde);margin-bottom:4px}
+  .card .acciones{display:grid;gap:10px}
+  .card .acciones .btn{justify-content:center}
+
+  /* ===== Proceso (franja crema oscura) ===== */
+  .proceso{background:var(--crema-2)}
+  .pasos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;max-width:1000px;margin-inline:auto}
+  .paso{text-align:center;min-width:0}
+  .paso .n{font-family:"Fraunces";font-size:48px;color:var(--oro);line-height:1}
+  .paso h3{font-size:22px;color:var(--verde);margin:10px 0 8px}
+  .paso p{color:var(--tinta-suave);font-size:15.5px}
+  .proceso .cierre{text-align:center;margin-top:40px;font-size:18px}
+  .proceso .cierre b{color:var(--oro)}
+
+  /* ===== Momentos (foto + texto) ===== */
+  .split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;align-items:center}
+  .split img{border-radius:var(--radio);aspect-ratio:4/5;object-fit:cover;width:100%}
+  .split h2{font-size:clamp(30px,3.6vw,42px);color:var(--verde);margin-bottom:16px}
+  .split p{font-size:17px;color:var(--tinta-suave);margin-bottom:14px}
+  .lista{display:grid;gap:10px;margin:22px 0 28px}
+  .lista li{list-style:none;display:flex;gap:12px;align-items:center;font-size:16px}
+  .lista li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--oro);flex:none}
+
+  /* ===== Galería ===== */
+  .gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .gal img{border-radius:var(--radio);aspect-ratio:4/5;object-fit:cover;width:100%}
+
+  /* ===== Historia (oscuro) ===== */
+  .historia{background:var(--verde-oscuro);color:var(--crema);text-align:center}
+  .historia .wrap{max-width:720px;padding-block:90px}
+  .historia h2{font-size:clamp(32px,4vw,48px);margin-bottom:20px}
+  .historia p{font-size:18px;color:#D9D2C0;margin-bottom:16px}
+  .historia .firma{font-family:"Fraunces";font-style:italic;color:var(--oro);font-size:22px;margin-top:22px}
+
+  /* ===== Footer ===== */
+  footer{background:var(--verde);color:var(--crema)}
+  footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-block:56px 36px}
+  footer h4{font-family:"Jost";font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--oro);margin-bottom:14px}
+  footer li{list-style:none;margin-bottom:8px;font-size:15px}
+  footer .logo img{height:60px;margin-bottom:14px}
+  footer .legal{border-top:1px solid rgba(255,255,255,.14);padding-block:18px 56px;font-size:13px;color:#BFC8C1;text-align:center}
+  .wa{position:fixed;right:20px;bottom:64px;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;color:#fff;font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:9}
+
+  /* ===== Móvil ===== */
+  @media (max-width:900px){
+    .nav{display:none}
+    .header .wrap{grid-template-columns:auto 1fr}
+    .logo img{height:64px}
+    .hero > .wrap{grid-template-columns:1fr;padding-top:96px;text-align:center}
+    .hero p{margin-inline:auto}
+    .hero .cta{justify-content:center}
+    .hero .bolsa{width:min(280px,70%);order:-1}
+    .hero{min-height:auto}
+    .creds .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid2,.split,.pasos,.gal{grid-template-columns:1fr}
+    .split img{height:auto}
+    footer .wrap{grid-template-columns:1fr 1fr}
+    .sec{padding-block:60px}
+  }
+  @media (max-width:520px){
+    .creds .wrap{grid-template-columns:1fr}
+    footer .wrap{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body class="aj">
+<div style="position:fixed;left:0;right:0;bottom:0;z-index:30;background:#0D3A27;color:#F7F4EC;font:500 11px/1.4 Jost,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom))">Propuesta de diseño · Web-Commerce para AJUSCO · Versión 1</div>
+
+<div class="franja">Envío gratis desde <b>$600 MXN</b> · Tostado en México · <b>Descafeinado al agua, sin químicos</b></div>
+
+<section class="hero">
+  <header class="header">
+    <div class="wrap">
+      <nav class="nav"><a href="#tienda">Tienda</a><a href="#proceso">Proceso al agua</a><a href="#historia">Nuestra historia</a><a href="#">Amazon</a></nav>
+      <a class="logo" href="#"><img src="img/logo.png" alt="AJUSCO — Decaf, Always."></a>
+      <div class="icons"><span>Buscar</span><span>Cuenta</span><span>Carrito (0)</span></div>
+    </div>
+  </header>
+  <div class="wrap">
+    <div>
+      <div class="ante">Decaf, Always.</div>
+      <h1>El café que sí<br>sabe a café.</h1>
+      <p>Descafeinado al agua, sin solventes ni químicos. 100% arábica de Oaxaca, tostado en México. Para la tarde, la noche, el embarazo — para cuando quieres café y no cafeína.</p>
+      <div class="cta">
+        <a class="btn btn--oro" href="#tienda">Comprar café</a>
+        <a class="btn btn--linea" href="#proceso">Cómo lo descafeinamos</a>
+      </div>
+    </div>
+    <img class="bolsa" src="img/bolsa-grano.webp" alt="Bolsa AJUSCO café en grano entero descafeinado 284 g">
+  </div>
+</section>
+
+<section class="creds">
+  <div class="wrap">
+    <div class="cred"><span class="ico">💧</span>Proceso de agua de montaña — descafeinado naturalmente</div>
+    <div class="cred"><span class="ico">🌵</span>Café de México, de origen único: Oaxaca</div>
+    <div class="cred"><span class="ico">☕</span>100% arábica, grado especialidad</div>
+    <div class="cred"><span class="ico">🔥</span>Tostado medio, en lotes pequeños</div>
+  </div>
+</section>
+
+<section class="sec" id="tienda">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Nuestro café</div>
+      <h2>Dos formas. Un mismo café.</h2>
+      <p>Mismo origen, mismo tueste, mismo proceso. Elige grano entero si mueles en casa, o molido si quieres abrir y preparar.</p>
+    </div>
+    <div class="grid2">
+      <article class="card">
+        <div class="foto"><img src="img/bolsa-grano.webp" alt="AJUSCO café en grano entero"></div>
+        <div class="cuerpo">
+          <div class="origen">Oaxaca, México · 284 g (10 oz)</div>
+          <h3>Grano entero <span class="precio">$298</span></h3>
+          <div class="specs">
+            <div><b>Proceso</b>Descafeinado al agua<br><b style="margin-top:10px">Tueste</b>Medio</div>
+            <div><b>Notas</b>Chocolate, caramelo, nuez<br><b style="margin-top:10px">Para</b>Espresso, prensa, V60, Chemex</div>
+          </div>
+          <div class="acciones">
+            <a class="btn btn--verde" href="#">Agregar al carrito</a>
+            <a class="btn btn--linea-verde" href="#">Ver detalles</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="foto"><img src="img/bolsa-molido.webp" alt="AJUSCO café molido"></div>
+        <div class="cuerpo">
+          <div class="origen">Oaxaca, México · 284 g (10 oz)</div>
+          <h3>Molido <span class="precio">$298</span></h3>
+          <div class="specs">
+            <div><b>Proceso</b>Descafeinado al agua<br><b style="margin-top:10px">Tueste</b>Medio</div>
+            <div><b>Notas</b>Chocolate, caramelo, nuez<br><b style="margin-top:10px">Para</b>Goteo, prensa francesa, moka</div>
+          </div>
+          <div class="acciones">
+            <a class="btn btn--verde" href="#">Agregar al carrito</a>
+            <a class="btn btn--linea-verde" href="#">Ver detalles</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec proceso" id="proceso">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Nuestro proceso natural</div>
+      <h2>Descafeinado al agua, en 3 pasos</h2>
+      <p>El decaf industrial usa solventes químicos. El nuestro usa agua de montaña — y el café conserva todo su cuerpo, aroma y sabor.</p>
+    </div>
+    <div class="pasos">
+      <div class="paso"><div class="n">01</div><h3>Vaporizar</h3><p>El vapor prepara suavemente los granos verdes de café.</p></div>
+      <div class="paso"><div class="n">02</div><h3>Extraer</h3><p>Una solución a base de agua remueve la cafeína, cuidando el sabor.</p></div>
+      <div class="paso"><div class="n">03</div><h3>Secar</h3><p>Los granos se secan suavemente y quedan listos para tostar.</p></div>
+    </div>
+    <div class="cierre"><b>Sin solventes ni químicos</b> — solo agua pura.</div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap split">
+    <img src="img/persona.jpg" alt="Tu ritual, a cualquier hora">
+    <div>
+      <div class="sec-head" style="text-align:left;margin:0 0 8px"><div class="kicker">Sin la cafeína, con el ritual</div></div>
+      <h2>Disfrútalo a cualquier hora</h2>
+      <p>Para quienes aman el café pero cuidan la cafeína — de día o de noche, sin remordimientos.</p>
+      <ul class="lista">
+        <li>Por la tarde, sin perder el sueño</li>
+        <li>Por la noche, después de cenar</li>
+        <li>En el embarazo</li>
+        <li>Si eres sensible a la cafeína</li>
+      </ul>
+      <a class="btn btn--verde" href="#tienda">Comprar café</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap gal">
+    <img src="img/camp.jpg" alt="Donde te lleve el camino">
+    <img src="img/metodos.jpg" alt="Prepáralo a tu manera">
+    <img src="img/hero-bosque.jpg" alt="El café que sí sabe a café">
+  </div>
+</section>
+
+<section class="historia" id="historia">
+  <div class="wrap">
+    <h2>Nadie debería tener que dejar el café.</h2>
+    <p>AJUSCO nació cuando la cafeína dejó de sentarnos bien y lo único que había en el anaquel era un descafeinado industrial, aguado y sin alma.</p>
+    <p>Así que hicimos el café que queríamos tomar: de especialidad, 100% arábica, de Oaxaca, descafeinado con agua y tostado en México. Para seguir con el ritual, a cualquier hora.</p>
+    <div class="firma">Decaf, Always.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><div class="logo"><img src="img/logo.png" alt="AJUSCO"></div><p style="font-size:15px;color:#D9D2C0;max-width:34ch">Café descafeinado de especialidad. Proceso al agua, origen Oaxaca, tostado en México.</p></div>
+    <div><h4>Tienda</h4><ul><li>Grano entero</li><li>Molido</li><li>Comprar en Amazon</li></ul></div>
+    <div><h4>Conoce</h4><ul><li>Proceso al agua</li><li>Nuestra historia</li><li>Preguntas frecuentes</li></ul></div>
+    <div><h4>Ayuda</h4><ul><li>Envíos y devoluciones</li><li>Contacto</li><li>WhatsApp</li></ul></div>
+  </div>
+  <div class="legal">© 2026 AJUSCO · hola@ajuscodecaf.com · Hecho en México</div>
+</footer>
+<a class="wa" href="#" aria-label="WhatsApp">WA</a>
+
+</body>
+</html>
